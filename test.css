@@ -1,0 +1,100 @@
+
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background-color: hsl(240, 14%, 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ball-wrapper{
+    --wrapperWidth: 200px;
+    width: var(--wrapperWidth);
+    display: flex;
+    justify-content: space-between;
+}
+
+.ball-wrapper .ball{
+    --ball-size: 20px;
+    --duration: 1s;
+    --origin: -80px;
+    --gap: calc((var(--wrapperWidth) - var(--ball-size) * 5) / 4);
+    --moveBall: calc((var(--ball-size) + var(--gap)) * -1);
+    height: var(--ball-size);
+    width: var(--ball-size);
+    border-radius: 50%;
+}
+
+.ball-wrapper .ball:nth-child(1){
+    background-color: hsl(310, 100%, 50%);
+    animation: moveX var(--duration) linear infinite alternate;
+}
+@keyframes moveX {
+    0%{
+        transform: translate(0);
+    }
+    100%{
+        transform: translate(calc(var(--wrapperWidth) - 
+        var(--ball-size)));
+    }
+}
+.ball-wrapper .ball:nth-child(2){
+    background-color: hsl(143, 100%, 50%);
+    animation: ball2 var(--duration) infinite alternate;
+}
+.ball-wrapper .ball:nth-child(3){
+    background-color: hsl(248, 100%, 50%);
+    animation: ball3 var(--duration) infinite alternate;
+}
+.ball-wrapper .ball:nth-child(4){
+    background-color: hsl(0, 100%, 50%);
+    animation: ball4 var(--duration) infinite alternate;
+}
+.ball-wrapper .ball:nth-child(5){
+    background-color: hsl(67, 100%, 50%);
+    animation: ball5 var(--duration) infinite alternate;
+}
+
+@keyframes ball2 {
+    0%{
+        transform-origin: var(--origin);
+        transform: translateX(0) rotate(0);
+    }
+    25%, 100%{
+        transform-origin: center;
+        transform: translateX(var(--moveBall)) rotate(-90deg);
+    }
+}
+@keyframes ball3 {
+    0%, 25%{
+        transform-origin: var(--origin);
+        transform: translateX(0) rotate(0);
+    }
+    50%, 100%{
+        transform-origin: center;
+        transform: translateX(var(--moveBall)) rotate(-90deg);
+    }
+}
+@keyframes ball4 {
+    0%, 50%{
+        transform-origin: var(--origin);
+        transform: translateX(0) rotate(0);
+    }
+    75%, 100%{
+        transform-origin: center;
+        transform: translateX(var(--moveBall)) rotate(-90deg);
+    }
+}
+@keyframes ball5 {
+    0%, 75%{
+        transform-origin: var(--origin);
+        transform: translateX(0) rotate(0);
+    }
+    100%{
+        transform-origin: center;
+        transform: translateX(var(--moveBall)) rotate(-90deg);
+    }
+}
+
